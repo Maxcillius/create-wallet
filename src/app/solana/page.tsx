@@ -66,16 +66,16 @@ export default function Bitcoin() {
     return (
         <div className="flex flex-row justify-evenly h-screen px-10">
             <div className="flex flex-col w-full h-screen">
-                <div className="flex flex-row justify-center h-full py-32">
+                <div className="flex flex-col lg:flex-row justify-center h-full py-32">
                     { Generated &&
-                        <div className="flex flex-col w-full overflow-scroll h-full gap-10 px-4">
+                        <div className="flex flex-col w-full overflow-scroll h-full gap-10 px-4 lg:my-0 my-10">
                             {
                                 WalletKeys.map((wallKeys: walletKeys) => {
                                     return (
                                         <div key={wallKeys.id}>
                                             <Keys privKey={wallKeys.privKey} pubKey={wallKeys.pubKey} wallet={wallKeys.id.toString()}/>
                                             <div className="flex flex-row justify-end p-2 bg-slate-100">
-                                                <Image onClick={() => {handleDelete(wallKeys.id)}} src={"/delete.svg"} alt="delete" height={35} width={35} className="hover:cursor-pointer hover:scale-110 transition-transform"></Image>
+                                                <Image onClick={() => {handleDelete(wallKeys.id)}} src={"/delete.svg"} alt="delete" height={25} width={25} className="hover:cursor-pointer hover:scale-110 transition-transform"></Image>
                                             </div>
                                         </div>
                                     )
@@ -83,7 +83,7 @@ export default function Bitcoin() {
                             }
                         </div>
                     }
-                    <div className="flex flex-col justify-start gap-10 w-full h-full">
+                    <div className="flex flex-col justify-start gap-10 w-full h-screen">
                         <div className={`flex flex-row w-full`}>
                             { mnemonics.length === 0 && 
                                 <input
@@ -94,7 +94,7 @@ export default function Bitcoin() {
                             }
                             <div className={`${mnemonics.length !== 0 ? 'w-full px-10' : ''}`}>
                                 <button onClick={handKeys} className="bg-[#7209b7] rounded-lg w-full text-center text-white font-bold p-4 shadow-lg hover:scale-105 transition-transform">
-                                    <p className="text-center flex flex-col justify-center">
+                                    <p className="text-center flex flex-col justify-center text-3xl">
                                         {`${Phrases.length == 0 ? 'Generate' : 'Add'}`}
                                     </p>
                                 </button>
@@ -107,7 +107,7 @@ export default function Bitcoin() {
                                 <div className="bg-slate-800 rounded-md flex flex-col h-fit shadow-lg">
                                     <div className="flex flex-row">
                                         <div className="flex flex-col justify-center w-full px-4">
-                                            <h2 className="text-center text-white font-sans font-semibold text-2xl">Secret Phrase</h2>
+                                            <h2 className="text-center text-white font-sans font-semibold text-xl md:text-2xl">Secret Phrase</h2>
                                         </div>
                                         <Image onClick={() => {
                                             setDropDown(!isDropDown);    
@@ -119,7 +119,7 @@ export default function Bitcoin() {
                                             <div className="grid auto-rows-auto grid-cols-4 h-full">
                                                 {mnemonics.split(" ").map((word) => {
                                                     return (
-                                                        <div key={word} className="text-center flex flex-col justify-center text-white font-semibold text-3xl p-7">
+                                                        <div key={word} className="text-center flex flex-col justify-center text-white font-semibold text-lg lg:text-2xl xl:text-3xl p-3 lg:p-7">
                                                             {word}
                                                         </div>
                                                     )
