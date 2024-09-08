@@ -64,18 +64,18 @@ export default function Bitcoin() {
     }
 
     return (
-        <div className="flex flex-row justify-evenly h-screen px-10">
-            <div className="flex flex-col w-full h-screen">
-                <div className="flex flex-col lg:flex-row justify-center h-full py-32">
+        <div className="flex flex-row h-screen lg:px-10">
+            <div className="flex flex-col w-full h-screen pt-32">
+                <div className="flex flex-col lg:flex-row">
                     { Generated &&
-                        <div className="flex flex-col w-full overflow-scroll h-full gap-10 px-4 lg:my-0 my-10">
+                        <div className="flex flex-col w-full overflow-scroll h-96 gap-10 px-4 lg:my-0 my-10">
                             {
                                 WalletKeys.map((wallKeys: walletKeys) => {
                                     return (
                                         <div key={wallKeys.id}>
                                             <Keys privKey={wallKeys.privKey} pubKey={wallKeys.pubKey} wallet={wallKeys.id.toString()}/>
                                             <div className="flex flex-row justify-end p-2 bg-slate-100">
-                                                <Image onClick={() => {handleDelete(wallKeys.id)}} src={"/delete.svg"} alt="delete" height={25} width={25} className="hover:cursor-pointer hover:scale-110 transition-transform"></Image>
+                                                <Image onClick={() => {handleDelete(wallKeys.id)}} src={"/delete.svg"} alt="delete" height={35} width={35} className="hover:cursor-pointer hover:scale-110 transition-transform"></Image>
                                             </div>
                                         </div>
                                     )
@@ -83,18 +83,18 @@ export default function Bitcoin() {
                             }
                         </div>
                     }
-                    <div className="flex flex-col justify-start gap-10 w-full h-screen">
-                        <div className={`flex flex-row w-full`}>
+                    <div className="flex flex-col justify-start gap-10 w-full">
+                        <div className={`flex flex-row w-full px-2`}>
                             { mnemonics.length === 0 && 
                                 <input
                                 onChange={(e) => {
                                     setPhrases(e.target.value);
                                 }} 
-                                className="w-full px-4 mx-4 text-3xl font-Roboto focus:outline-slate-500 rounded-lg bg-slate-200 outline-none shadow-lg"></input>
+                                className="w-full mx-1 px-1 lg:px-4 lg:mx-4 text-sm lg:text-3xl font-Roboto focus:outline-slate-500 rounded-lg bg-slate-200 outline-none shadow-lg"></input>
                             }
                             <div className={`${mnemonics.length !== 0 ? 'w-full px-10' : ''}`}>
-                                <button onClick={handKeys} className="bg-[#7209b7] rounded-lg w-full text-center text-white font-bold p-4 shadow-lg hover:scale-105 transition-transform">
-                                    <p className="text-center flex flex-col justify-center text-3xl">
+                                <button onClick={handKeys} className="bg-sol rounded-lg w-full text-center text-white font-bold p-2 lg:p-4 shadow-lg hover:scale-105 transition-transform">
+                                    <p className="text-center flex flex-col justify-center text-sm lg:text-xl">
                                         {`${Phrases.length == 0 ? 'Generate' : 'Add'}`}
                                     </p>
                                 </button>
@@ -107,7 +107,7 @@ export default function Bitcoin() {
                                 <div className="bg-slate-800 rounded-md flex flex-col h-fit shadow-lg">
                                     <div className="flex flex-row">
                                         <div className="flex flex-col justify-center w-full px-4">
-                                            <h2 className="text-center text-white font-sans font-semibold text-xl md:text-2xl">Secret Phrase</h2>
+                                            <h2 className="text-center text-white font-sans font-semibold text-2xl">Secret Phrase</h2>
                                         </div>
                                         <Image onClick={() => {
                                             setDropDown(!isDropDown);    

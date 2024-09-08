@@ -12,6 +12,10 @@ const config: Config = {
       fontFamily: {
         Roboto: ["roboto-black"],
         Fira_Code: ["fira-code"]
+      },
+      colors: {
+        eth: '#0077b6',
+        sol: '#7209b7'
       }
     },
   },
