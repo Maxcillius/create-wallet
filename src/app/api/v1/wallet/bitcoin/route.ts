@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { generateMnemonic, mnemonicToSeedSync } from "bip39";
+import { generateMnemonic, mnemonicToSeedSync, validateMnemonic } from "bip39";
 import { derivePath } from "ed25519-hd-key";
 import { Keypair } from "@solana/web3.js"
 import nacl from "tweetnacl";
@@ -11,6 +11,14 @@ export async function POST(req: NextRequest) {
     const path = body.path;
 
     const mnemonic = body.mnemonic || generateMnemonic();
+
+    if(!validateMnemonic(mnemonic)) {
+        return NextResponse.json({
+            message: "Invalid phrases"
+        }, {
+            status: 400
+        })
+    }
     
     try {
         const seed = mnemonicToSeedSync(mnemonic);

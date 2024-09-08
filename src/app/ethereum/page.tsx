@@ -66,9 +66,6 @@ export default function Bitcoin() {
     return (
         <div className="flex flex-row justify-evenly h-screen px-10">
             <div className="flex flex-col w-full h-screen">
-                <div className="text-center text-red-500">
-                    {Alert}
-                </div>
                 <div className="flex flex-row justify-center h-full py-32">
                     { Generated &&
                         <div className="flex flex-col w-full overflow-scroll h-full gap-10 px-4">
@@ -133,6 +130,9 @@ export default function Bitcoin() {
                                 </div>
                         </div>
                         }
+                        <div className="text-center text-red-500">
+                            {Alert}
+                        </div>
                     </div>
                 </div>
             </div>
