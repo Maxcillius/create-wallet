@@ -66,15 +66,15 @@ export default function Bitcoin() {
     return (
         <div className="flex flex-row h-screen lg:px-10">
             <div className="flex flex-col w-full h-screen pt-32">
-                <div className="flex flex-col lg:flex-row">
+                <div className="flex flex-col lg:flex-row mx-4 md:mx-0">
                     <div className="flex flex-col justify-start gap-5 w-full">
-                        <div className={`flex gap-5 flex-col md:flex-row w-full px-2`}>
+                        <div className={`flex gap-5 flex-col md:flex-row`}>
                             { mnemonics.length === 0 && 
                                 <input
                                 onChange={(e) => {
                                     setPhrases(e.target.value);
                                 }} 
-                                className="w-full mx-1 px-1 lg:px-4 lg:mx-4 text-lg lg:text-3xl font-Roboto rounded-sm md:rounded-lg bg-slate-200 shadow-lg"></input>
+                                className="w-full px-1 lg:px-4 lg:mx-4 text-xl lg:text-3xl font-Roboto rounded-sm md:rounded-lg bg-slate-200 shadow-lg"></input>
                             }
                             <div className={`${mnemonics.length !== 0 ? 'w-full px-10' : ''}`}>
                                 <button onClick={handKeys} className="bg-orange-500 rounded-lg w-full text-center text-white font-bold p-2 lg:p-4 shadow-lg hover:scale-105 transition-transform">
